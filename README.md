@@ -297,3 +297,5 @@ Proyek ini dilisensikan di bawah MIT License. Lihat file LICENSE untuk detail.
 
 ## Penghargaan
 Terima kasih kepada para kontributor dan komunitas open-source atas alat dan kerangka kerja mereka yang memungkinkan proyek ini.
+
+----
