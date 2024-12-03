@@ -1,3 +1,151 @@
+# Analisis Performansi Ridge dan Lasso Regression
+
+Repositori ini berisi analisis performansi model Ridge dan Lasso regression, dengan fokus pada evaluasi hasil pada data training, validasi, dan test. Notebook ini mengevaluasi model menggunakan metrik statistik utama dan memberikan wawasan tentang kemampuan generalisasi model. Model ini dirancang untuk memprediksi harga rumah di Boston berdasarkan berbagai variabel yang relevan.
+
+---
+
+## Ikhtisar Proyek
+Ridge dan Lasso regression adalah teknik regularisasi regresi linier yang digunakan untuk mencegah overfitting dan meningkatkan performa model. Proyek ini membandingkan kedua metode menggunakan metrik performa berikut:
+
+- **R-squared (R²)**: Mengukur proporsi varians yang dijelaskan oleh model.
+- **Mean Absolute Error (MAE)**: Rata-rata dari selisih absolut antara nilai prediksi dan nilai aktual.
+- **Root Mean Squared Error (RMSE)**: Akar kuadrat dari rata-rata selisih kuadrat antara nilai prediksi dan aktual.
+- **Mean Absolute Percentage Error (MAPE)**: Rata-rata persentase kesalahan absolut antara nilai prediksi dan aktual.
+
+Analisis ini menyoroti kekuatan dan kelemahan kedua model pada berbagai pembagian data.
+
+---
+
+## Penjelasan Variabel Dataset
+Dataset ini berisi data yang digunakan untuk memprediksi harga rumah di Boston berdasarkan beberapa faktor. Berikut adalah penjelasan rinci masing-masing variabel:
+
+1. **Criminal rate (crim)**:
+   - Tingkat kriminalitas di daerah tersebut. Semakin tinggi nilai, semakin tinggi tingkat kriminalitas.
+
+2. **Residential land zoned proportion (zn)**:
+   - Proporsi luas tanah yang terzonasi untuk perumahan. Angka lebih tinggi menunjukkan lebih banyak area perumahan.
+
+3. **Non-retail business acres proportion (indus)**:
+   - Proporsi area untuk bisnis non-ritel, seperti industri atau pabrik.
+
+4. **Is bounds with river (chas)**:
+   - Variabel biner (0 atau 1) yang menunjukkan apakah area berbatasan dengan sungai.
+
+5. **Nitrogen oxides concentration (nox)**:
+   - Konsentrasi nitrogen oksida di udara, yang berhubungan dengan tingkat polusi.
+
+6. **Number rooms average (rm)**:
+   - Rata-rata jumlah kamar di setiap rumah di daerah tersebut.
+
+7. **Owner age proportion (age)**:
+   - Proporsi usia pemilik rumah di daerah tersebut. Angka tinggi menunjukkan komunitas dengan populasi yang lebih tua.
+
+8. **Weighted distance to cities (dis)**:
+   - Jarak ke pusat kota, dengan bobot tertentu berdasarkan lokasi geografis.
+
+9. **Accessibility index (rad)**:
+   - Indeks aksesibilitas ke fasilitas penting, seperti jalan raya atau transportasi umum.
+
+10. **Tax rate (tax)**:
+    - Tingkat pajak properti di area tersebut.
+
+11. **Pupil-teacher ratio (ptratio)**:
+    - Rasio jumlah siswa per guru di sekolah di area tersebut.
+
+12. **Black proportion (black)**:
+    - Proporsi penduduk dengan latar belakang ras tertentu.
+
+13. **Percent lower status (lstat)**:
+    - Persentase penduduk dengan status ekonomi lebih rendah.
+
+14. **Median value of owner-occupied homes (medv)**:
+    - Nilai tengah dari harga rumah yang dihuni oleh pemilik. Variabel ini adalah target prediksi.
+
+---
+
+## Hasil Utama
+### Performansi Ridge Regression
+#### Data Training
+- **R-squared**: 73.95%
+- **MAE**: 3.33
+- **RMSE**: 23.25
+- **MAPE**: 16.10%
+
+#### Data Validasi
+- **R-squared**: 71.06%
+- **MAE**: 3.32
+- **RMSE**: 20.35
+- **MAPE**: 16.10%
+
+#### Data Test
+- **R-squared**: 70.30%
+- **MAE**: 3.40
+- **RMSE**: 25.93
+- **MAPE**: 18.57%
+
+### Performansi Lasso Regression
+Hasil performa mirip dengan Ridge Regression namun nilai lasso lebih baik sedikit, variasi dalam metrik seperti R-squared (dijelaskan lebih rinci dalam notebook).
+
+---
+
+## Kesimpulan dan Asumsi
+### Kesimpulan
+- **Stabilitas**: Ridge Regression menunjukkan performa konsisten di antara data training, validasi, dan test.
+- **Tidak Overfitting**: Tidak ada penurunan performa signifikan antara data training dan validasi/test.
+- **Perbandingan**: Ridge dan Lasso Regression memiliki performa serupa dengan keunggulan kecil pada stabilitas Lasso Regression.
+
+### Asumsi
+1. **Data Bebas Multikolinearitas Berlebihan**: Ridge dan Lasso efektif dalam menangani multikolinearitas.
+2. **Distribusi Data yang Wajar**: Asumsi bahwa data tidak memiliki outlier ekstrem yang memengaruhi performa model.
+3. **Kesesuaian Model Linier**: Diasumsikan hubungan antara fitur dan target bersifat linier.
+
+---
+
+## Pengembangan Lebih Lanjut
+- **Visualisasi Data**: Menambahkan visualisasi untuk menunjukkan hubungan antar fitur dan target.
+- **Penerapan Hyperparameter Tuning**: Mengoptimalkan parameter seperti alpha untuk performa lebih baik.
+- **Evaluasi Model Lain**: Membandingkan performa dengan model non-linear seperti Random Forest atau Gradient Boosting.
+- **Penggunaan Data Nyata**: Menguji model dengan dataset baru untuk validasi tambahan.
+
+---
+
+## Cara Menggunakan
+1. Clone repositori ini:
+   ```bash
+   https://github.com/NanasAlpukat/housing_price_prediction_api.git
+   ```
+2. Install dependensi (jika diperlukan) menggunakan:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Buka notebook:
+   ```bash
+   jupyter notebook RedgeLassoReg.ipynb
+   ```
+4. Jalankan sel untuk mereproduksi analisis.
+
+---
+
+## Dependencies
+- Python 3.12.7
+- Libraries:
+  - NumPy
+  - Pandas
+  - Scikit-learn
+  - Matplotlib (opsional untuk visualisasi)
+
+---
+
+## Lisensi
+Proyek ini dilisensikan di bawah MIT License. Lihat file LICENSE untuk detail.
+
+---
+
+## Penghargaan
+Terima kasih kepada para kontributor dan komunitas open-source atas alat dan kerangka kerja mereka yang memungkinkan proyek ini.
+
+
+
 ---
 
 # Flask API untuk Prediksi Harga Rumah
@@ -152,150 +300,3 @@ Untuk pengembangan lebih lanjut, beberapa fitur yang dapat dipertimbangkan:
 
 ---
 
-# Analisis Performansi Ridge dan Lasso Regression
-
-Repositori ini berisi analisis performansi model Ridge dan Lasso regression, dengan fokus pada evaluasi hasil pada data training, validasi, dan test. Notebook ini mengevaluasi model menggunakan metrik statistik utama dan memberikan wawasan tentang kemampuan generalisasi model. Model ini dirancang untuk memprediksi harga rumah di Boston berdasarkan berbagai variabel yang relevan.
-
----
-
-## Ikhtisar Proyek
-Ridge dan Lasso regression adalah teknik regularisasi regresi linier yang digunakan untuk mencegah overfitting dan meningkatkan performa model. Proyek ini membandingkan kedua metode menggunakan metrik performa berikut:
-
-- **R-squared (R²)**: Mengukur proporsi varians yang dijelaskan oleh model.
-- **Mean Absolute Error (MAE)**: Rata-rata dari selisih absolut antara nilai prediksi dan nilai aktual.
-- **Root Mean Squared Error (RMSE)**: Akar kuadrat dari rata-rata selisih kuadrat antara nilai prediksi dan aktual.
-- **Mean Absolute Percentage Error (MAPE)**: Rata-rata persentase kesalahan absolut antara nilai prediksi dan aktual.
-
-Analisis ini menyoroti kekuatan dan kelemahan kedua model pada berbagai pembagian data.
-
----
-
-## Penjelasan Variabel Dataset
-Dataset ini berisi data yang digunakan untuk memprediksi harga rumah di Boston berdasarkan beberapa faktor. Berikut adalah penjelasan rinci masing-masing variabel:
-
-1. **Criminal rate (crim)**:
-   - Tingkat kriminalitas di daerah tersebut. Semakin tinggi nilai, semakin tinggi tingkat kriminalitas.
-
-2. **Residential land zoned proportion (zn)**:
-   - Proporsi luas tanah yang terzonasi untuk perumahan. Angka lebih tinggi menunjukkan lebih banyak area perumahan.
-
-3. **Non-retail business acres proportion (indus)**:
-   - Proporsi area untuk bisnis non-ritel, seperti industri atau pabrik.
-
-4. **Is bounds with river (chas)**:
-   - Variabel biner (0 atau 1) yang menunjukkan apakah area berbatasan dengan sungai.
-
-5. **Nitrogen oxides concentration (nox)**:
-   - Konsentrasi nitrogen oksida di udara, yang berhubungan dengan tingkat polusi.
-
-6. **Number rooms average (rm)**:
-   - Rata-rata jumlah kamar di setiap rumah di daerah tersebut.
-
-7. **Owner age proportion (age)**:
-   - Proporsi usia pemilik rumah di daerah tersebut. Angka tinggi menunjukkan komunitas dengan populasi yang lebih tua.
-
-8. **Weighted distance to cities (dis)**:
-   - Jarak ke pusat kota, dengan bobot tertentu berdasarkan lokasi geografis.
-
-9. **Accessibility index (rad)**:
-   - Indeks aksesibilitas ke fasilitas penting, seperti jalan raya atau transportasi umum.
-
-10. **Tax rate (tax)**:
-    - Tingkat pajak properti di area tersebut.
-
-11. **Pupil-teacher ratio (ptratio)**:
-    - Rasio jumlah siswa per guru di sekolah di area tersebut.
-
-12. **Black proportion (black)**:
-    - Proporsi penduduk dengan latar belakang ras tertentu.
-
-13. **Percent lower status (lstat)**:
-    - Persentase penduduk dengan status ekonomi lebih rendah.
-
-14. **Median value of owner-occupied homes (medv)**:
-    - Nilai tengah dari harga rumah yang dihuni oleh pemilik. Variabel ini adalah target prediksi.
-
----
-
-## Hasil Utama
-### Performansi Ridge Regression
-#### Data Training
-- **R-squared**: 73.95%
-- **MAE**: 3.33
-- **RMSE**: 23.25
-- **MAPE**: 16.10%
-
-#### Data Validasi
-- **R-squared**: 71.06%
-- **MAE**: 3.32
-- **RMSE**: 20.35
-- **MAPE**: 16.10%
-
-#### Data Test
-- **R-squared**: 70.30%
-- **MAE**: 3.40
-- **RMSE**: 25.93
-- **MAPE**: 18.57%
-
-### Performansi Lasso Regression
-Hasil performa mirip dengan Ridge Regression namun nilai lasso lebih baik sedikit, variasi dalam metrik seperti R-squared (dijelaskan lebih rinci dalam notebook).
-
----
-
-## Kesimpulan dan Asumsi
-### Kesimpulan
-- **Stabilitas**: Ridge Regression menunjukkan performa konsisten di antara data training, validasi, dan test.
-- **Tidak Overfitting**: Tidak ada penurunan performa signifikan antara data training dan validasi/test.
-- **Perbandingan**: Ridge dan Lasso Regression memiliki performa serupa dengan keunggulan kecil pada stabilitas Lasso Regression.
-
-### Asumsi
-1. **Data Bebas Multikolinearitas Berlebihan**: Ridge dan Lasso efektif dalam menangani multikolinearitas.
-2. **Distribusi Data yang Wajar**: Asumsi bahwa data tidak memiliki outlier ekstrem yang memengaruhi performa model.
-3. **Kesesuaian Model Linier**: Diasumsikan hubungan antara fitur dan target bersifat linier.
-
----
-
-## Pengembangan Lebih Lanjut
-- **Visualisasi Data**: Menambahkan visualisasi untuk menunjukkan hubungan antar fitur dan target.
-- **Penerapan Hyperparameter Tuning**: Mengoptimalkan parameter seperti alpha untuk performa lebih baik.
-- **Evaluasi Model Lain**: Membandingkan performa dengan model non-linear seperti Random Forest atau Gradient Boosting.
-- **Penggunaan Data Nyata**: Menguji model dengan dataset baru untuk validasi tambahan.
-
----
-
-## Cara Menggunakan
-1. Clone repositori ini:
-   ```bash
-   https://github.com/NanasAlpukat/housing_price_prediction_api.git
-   ```
-2. Install dependensi (jika diperlukan) menggunakan:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Buka notebook:
-   ```bash
-   jupyter notebook RedgeLassoReg.ipynb
-   ```
-4. Jalankan sel untuk mereproduksi analisis.
-
----
-
-## Dependencies
-- Python 3.12.7
-- Libraries:
-  - NumPy
-  - Pandas
-  - Scikit-learn
-  - Matplotlib (opsional untuk visualisasi)
-
----
-
-## Lisensi
-Proyek ini dilisensikan di bawah MIT License. Lihat file LICENSE untuk detail.
-
----
-
-## Penghargaan
-Terima kasih kepada para kontributor dan komunitas open-source atas alat dan kerangka kerja mereka yang memungkinkan proyek ini.
-
-----
